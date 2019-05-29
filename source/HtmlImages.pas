@@ -2628,10 +2628,12 @@ initialization
   DefBitMap.Handle := LoadBitmap(HInstance, MakeIntResource(DefaultBitmap));
   ErrorBitMap.Handle := LoadBitmap(HInstance, MakeIntResource(ErrBitmap));
   ErrorBitMapMask.Handle := LoadBitmap(HInstance, MakeIntResource(ErrBitmapMask));
-  Screen.Cursors[HandCursor] := LoadCursor(HInstance, MakeIntResource(Hand_Cursor));
-  Screen.Cursors[UpDownCursor] := LoadCursor(HInstance, 'UPDOWNCURSOR');
-  Screen.Cursors[UpOnlyCursor] := LoadCursor(HInstance, 'UPONLYCURSOR');
-  Screen.Cursors[DownOnlyCursor] := LoadCursor(HInstance, 'DOWNONLYCURSOR');
+  {$ifdef UseCustomCursors}
+    Screen.Cursors[HandCursor] := LoadCursor(HInstance, MakeIntResource(Hand_Cursor));
+    Screen.Cursors[UpDownCursor] := LoadCursor(HInstance, 'UPDOWNCURSOR');
+    Screen.Cursors[UpOnlyCursor] := LoadCursor(HInstance, 'UPONLYCURSOR');
+    Screen.Cursors[DownOnlyCursor] := LoadCursor(HInstance, 'DOWNONLYCURSOR');
+  {$endif}
 {$endif}
 
   DefImage := ThtBitmapImage.Create(DefBitmap, nil, itrNone);

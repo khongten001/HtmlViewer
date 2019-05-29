@@ -344,6 +344,8 @@ are covered by separate copyright notices located in those modules.
         {Brings back deprecated LoadStrings(), LoadImage(), LoadText*()..., ... methods.
         Prefer using the suggested replacement methods over defining this switch.}
 
+{.$define UseCustomCursors}
+
 {$ifdef Compiler20_Plus}
 {$else}
   {TNT Unicode controls are mandatory for Delphi 6-2007}
